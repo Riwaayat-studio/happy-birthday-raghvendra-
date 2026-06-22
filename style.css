@@ -1,0 +1,302 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #061519 0%, #0b2e36 50%, #0d414d 100%);
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    perspective: 1000px; /* Crucial for 3D depth */
+}
+
+/* Screen Layouts */
+.screen-container {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 1;
+}
+
+.hidden {
+    display: none !important;
+    opacity: 0;
+    transform: scale(0.9) translateY(30px);
+}
+
+/* --- 3D GIFT BOX STYLING --- */
+.tap-instruction {
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
+    color: #00f2fe;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    text-shadow: 0 0 10px rgba(0, 242, 254, 0.6);
+    animation: pulse 1.5s infinite alternate;
+}
+
+.gift-container {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.gift-container:hover {
+    transform: scale(1.05) rotateY(10deg);
+}
+
+.gift-box {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+/* Box Lid (Dhakkan) */
+.box-lid {
+    position: absolute;
+    width: 190px;
+    height: 40px;
+    background: linear-gradient(45deg, #00f2fe, #00b8d4);
+    left: -5px;
+    top: -5px;
+    z-index: 3;
+    border-radius: 4px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+    transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    transform-origin: top left;
+}
+
+/* Box Main Body */
+.box-body {
+    position: absolute;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(135deg, #0d414d, #061519);
+    bottom: 0;
+    z-index: 1;
+    border: 3px solid #00f2fe;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 15px 35px rgba(0, 242, 254, 0.2);
+}
+
+/* Cross Ribbon Graphic on Box Body */
+.box-body::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 100%;
+    background: #00f2fe;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+}
+
+/* Circular Seal Label (TAP TO OPEN) */
+.box-seal {
+    position: absolute;
+    width: 85px;
+    height: 85px;
+    background: radial-gradient(circle, #00f2fe 0%, #008ba3 100%);
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+    top: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 20px rgba(0, 242, 254, 0.8), inset 0 0 5px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.box-seal span {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #061519;
+    text-align: center;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+}
+
+/* Animation triggered via JS when opened */
+.gift-container.opened .box-lid {
+    transform: rotateZ(-70deg) translateY(-80px) translateX(-40px);
+    opacity: 0;
+}
+
+.gift-container.opened .box-seal {
+    transform: translateX(-50%) scale(0);
+    opacity: 0;
+}
+
+/* --- MAIN DASHBOARD STYLING --- */
+.dashboard-card {
+    background: rgba(6, 21, 25, 0.75);
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(0, 242, 254, 0.2);
+    border-radius: 24px;
+    padding: 35px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.6), inset 0 0 20px rgba(0, 242, 254, 0.05);
+}
+
+.process-badge {
+    background: linear-gradient(45deg, #00f2fe, #008ba3);
+    color: #061519;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 6px 16px;
+    border-radius: 50px;
+    display: inline-block;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.main-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 8px;
+}
+
+.highlight-text {
+    color: #00f2fe;
+    display: block;
+    text-shadow: 0 0 15px rgba(0, 242, 254, 0.5);
+}
+
+.designation {
+    font-size: 0.95rem;
+    color: #a2c2c9;
+    letter-spacing: 0.5px;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+/* Scorecard Design */
+.scorecard {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 242, 254, 0.1);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: left;
+    margin-bottom: 25px;
+}
+
+.scorecard-title {
+    font-size: 0.9rem;
+    color: #00f2fe;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(0, 242, 254, 0.15);
+    padding-bottom: 8px;
+}
+
+.param-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+    color: #e0e9eb;
+}
+
+.param-val {
+    font-weight: 600;
+}
+
+.secure-green { color: #00ffaa; }
+.neon-blue { color: #00f2fe; }
+
+.total-score {
+    margin-top: 15px;
+    padding-top: 12px;
+    border-top: 1px dashed rgba(255,255,255,0.1);
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.glow-text {
+    color: #00f2fe;
+    text-shadow: 0 0 10px rgba(0, 242, 254, 0.8);
+}
+
+/* Feedback Console */
+.feedback-console {
+    background: #030d10;
+    border-left: 4px solid #00f2fe;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: left;
+    min-height: 90px;
+    margin-bottom: 30px;
+}
+
+.console-tag {
+    font-family: monospace;
+    color: #00f2fe;
+    font-size: 0.8rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+#typewriter-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #d1e2e6;
+}
+
+/* Interactive Action Button */
+.btn-celebrate {
+    background: linear-gradient(45deg, #00f2fe, #008ba3);
+    color: #061519;
+    border: none;
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0, 242, 254, 0.2);
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.btn-celebrate:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(0, 242, 254, 0.4);
+}
+
+/* Keyframe Animations */
+@keyframes pulse {
+    from { opacity: 0.6; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1.02); }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+    .dashboard-card { padding: 25px 20px; }
+    .main-title { font-size: 1.8rem; }
+  }
+  
