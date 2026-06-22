@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Raghvendra Sir!</title>
+    <!-- Elegant Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Confetti Library for Grand Ending -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+    <!-- BACKGROUND MUSIC -->
+    <audio id="bday-music" src="qa.bday.mp3" preload="auto"></audio>
+
+    <!-- STEP 1: 3D GIFT BOX SCREEN -->
+    <div id="gift-screen" class="screen-container">
+        <p class="tap-instruction">Tap to reveal surprise</p>
+        
+        <div class="gift-container" onclick="openGift()">
+            <!-- 3D Gift Box -->
+            <div class="gift-box">
+                <div class="box-lid"></div>
+                <div class="box-body"></div>
+                <!-- Circular Ribbon Seal acting as the Button -->
+                <div class="box-seal">
+                    <span>TAP<br>TO OPEN</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- STEP 2: MAIN DASHBOARD SCREEN (HIDDEN INITIALLY) -->
+    <div id="dashboard-screen" class="screen-container hidden">
+        <div class="dashboard-card">
+            <div class="process-badge">NIFTEL • Voice Process</div>
+            
+            <h1 class="main-title">Happy Birthday <span class="highlight-text">Raghvendra Sir!</span></h1>
+            <p class="designation">The Master of Quality Analysis & Compliance</p>
+
+            <!-- 100% QUALITY AUDIT SCORECARD -->
+            <div class="scorecard">
+                <h3 class="scorecard-title">📊 Birthday Quality Audit Report</h3>
+                <div class="param-row">
+                    <span>Fatal Errors Found:</span>
+                    <span class="param-val secure-green">0% (Perfect Compliance!)</span>
+                </div>
+                <div class="param-row">
+                    <span>Feedback Accuracy:</span>
+                    <span class="param-val secure-green">100% (Spot On!)</span>
+                </div>
+                <div class="param-row">
+                    <span>Patience & Support:</span>
+                    <span class="param-val neon-blue">Infinite ♾️ (Always Helpful)</span>
+                </div>
+                <div class="param-row total-score">
+                    <span>Overall Audit Score:</span>
+                    <span class="param-val glow-text">100 / 100</span>
+                </div>
+            </div>
+
+            <!-- LIVE FEEDBACK LOGGER (TYPEWRITER) -->
+            <div class="feedback-console">
+                <span class="console-tag">[AUDIT_LOG]:</span>
+                <p id="typewriter-text"></p>
+            </div>
+
+            <!-- GRAND FINALE BUTTON -->
+            <button class="btn-celebrate" onclick="triggerGrandFinale()">ACKNOWLEDGE & CELEBRATE 🎉</button>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
