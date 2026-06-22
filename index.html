@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday Raghvendra Sir!</title>
-    <!-- Elegant Fonts -->
+    <!-- Elegant & Modern Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <!-- Confetti Library -->
+    <!-- Confetti Trigger Library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
@@ -17,33 +17,26 @@
     <!-- Verbatim Background Music Reference -->
     <audio id="bday-music" src="qa.bday.mp3" preload="auto" loop></audio>
 
-    <!-- 🎁 STEP 1: PREMIUM BOX REVEAL SCREEN (As per exact video reference) -->
+    <!-- 🎁 STEP 1: PREMIUM BOX REVEAL SCREEN -->
     <div id="gift-screen" class="screen-container">
         <div class="video-gift-wrap" onclick="openGiftBox()">
-            <!-- Dynamic Central Gift Vector Box with Cyan and Gold Accents -->
             <div class="gift-icon-svg">
-                <svg viewBox="0 0 100 100" width="120" height="120">
-                    <!-- Box Body -->
-                    <rect x="20" y="40" width="60" height="50" fill="#062229" stroke="#00f2fe" stroke-width="2.5" rx="2"/>
-                    <!-- Box Lid -->
+                <svg viewBox="0 0 100 100" width="130" height="130">
+                    <rect x="20" y="40" width="60" height="50" fill="#04161a" stroke="#00f2fe" stroke-width="2" rx="2"/>
                     <rect x="16" y="30" width="68" height="14" fill="#00f2fe" rx="2"/>
-                    <!-- Horizontal Gold/Cyan Ribbon Accent -->
-                    <rect x="16" y="35" width="68" height="4" fill="#ffffff" opacity="0.4"/>
-                    <!-- Vertical Main Ribbon Cross -->
+                    <rect x="16" y="35" width="68" height="4" fill="#ffffff" opacity="0.3"/>
                     <rect x="45" y="30" width="10" height="60" fill="#00ffb3"/>
-                    <!-- Elegant Top Ribbon Bow Tie -->
                     <path d="M45 30 C35 15, 30 25, 45 30 Z" fill="#00ffb3"/>
                     <path d="M55 30 C65 15, 70 25, 55 30 Z" fill="#00ffb3"/>
                 </svg>
             </div>
-            <!-- Letter-spaced elegant trigger tracking video layout -->
             <h2 class="video-tap-text">TAP TO OPEN</h2>
         </div>
     </div>
 
-    <!-- 📊 STEP 2: MAIN SCROLLABLE DASHBOARD -->
+    <!-- 📊 STEP 2: MAIN SCROLLABLE GLASSMORPHISM DASHBOARD -->
     <div id="dashboard-screen" class="screen-container hidden scrollable">
-        <div class="dashboard-card">
+        <div class="dashboard-card glass-base">
             <div class="process-badge">NIFTEL • Voice Process</div>
             
             <h1 class="main-title">HAPPY BIRTHDAY <span class="highlight-text">RAGHVENDRA SIR!</span></h1>
@@ -51,8 +44,8 @@
 
             <p class="scroll-prompt">⚡ SCROLL DOWN ⚡</p>
 
-            <!-- SECTION 1: QUALITY AUDIT SCORECARD -->
-            <div class="dashboard-section scorecard">
+            <!-- SECTION 1: QUALITY AUDIT SCORECARD (GLASSMORPHISM) -->
+            <div class="dashboard-section glass-element scorecard">
                 <h3 class="section-title">📊 Birthday Quality Audit Report</h3>
                 <div class="param-row">
                     <span>Fatal Errors Found:</span>
@@ -72,14 +65,14 @@
                 </div>
             </div>
 
-            <!-- SECTION 2: LIVE FEEDBACK LOGGER (TYPEWRITER) -->
-            <div class="dashboard-section feedback-console">
+            <!-- SECTION 2: LIVE FEEDBACK LOGGER (GLASSMORPHISM) -->
+            <div class="dashboard-section glass-element feedback-console">
                 <span class="console-tag">[AUDIT_LOG]:</span>
                 <p id="typewriter-text"></p>
             </div>
 
-            <!-- SECTION 3: QA POWER METERS -->
-            <div class="dashboard-section trait-meter">
+            <!-- SECTION 3: QA POWER METERS (GLASSMORPHISM) -->
+            <div class="dashboard-section glass-element trait-meter">
                 <h3 class="section-title">⚡ Auditor Power Stats</h3>
                 <div class="trait-row">
                     <div class="trait-info"><span>Chai/Coffee Dependency:</span><span>100%</span></div>
@@ -92,7 +85,7 @@
             </div>
 
             <!-- SECTION 4: INTERACTIVE SCRATCH CARD -->
-            <div class="dashboard-section scratch-section">
+            <div class="dashboard-section glass-element scratch-section">
                 <h3 class="section-title">🤫 Scratch For Hidden Message</h3>
                 <div class="scratch-card-container">
                     <div class="scratch-secret-message">
@@ -107,9 +100,9 @@
         </div>
     </div>
 
-    <!-- 💎 STEP 3: CUSTOM PREMIUM MODAL (No cheap browser alerts) -->
+    <!-- 💎 STEP 3: CUSTOM GLASSMORPHISM MODAL -->
     <div id="custom-modal" class="modal-overlay hidden-modal">
-        <div class="modal-card">
+        <div class="modal-card glass-modal">
             <div class="modal-icon">✔</div>
             <h2>Audit Status: 100% Passed!</h2>
             <p class="modal-msg">Happy Birthday Raghvendra Sir! May you have an amazing year ahead with zero fatals and maximum happiness.</p>
