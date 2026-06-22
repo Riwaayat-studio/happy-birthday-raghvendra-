@@ -7,45 +7,53 @@
     <!-- Elegant Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- Stylesheet -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <!-- Confetti Library for Grand Ending -->
+    <!-- Confetti Library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 
-    <!-- BACKGROUND MUSIC -->
-    <audio id="bday-music" src="qa.bday.mp3" preload="auto"></audio>
+    <!-- Verbatim Background Music Reference -->
+    <audio id="bday-music" src="qa.bday.mp3" preload="auto" loop></audio>
 
-    <!-- STEP 1: 3D GIFT BOX SCREEN -->
+    <!-- 🎁 STEP 1: PREMIUM BOX REVEAL SCREEN (As per exact video reference) -->
     <div id="gift-screen" class="screen-container">
-        <p class="tap-instruction">Tap to reveal surprise</p>
-        
-        <div class="gift-container" onclick="openGift()">
-            <!-- 3D Gift Box -->
-            <div class="gift-box">
-                <div class="box-lid"></div>
-                <div class="box-body"></div>
-                <!-- Circular Ribbon Seal acting as the Button -->
-                <div class="box-seal">
-                    <span>TAP<br>TO OPEN</span>
-                </div>
+        <div class="video-gift-wrap" onclick="openGiftBox()">
+            <!-- Dynamic Central Gift Vector Box with Cyan and Gold Accents -->
+            <div class="gift-icon-svg">
+                <svg viewBox="0 0 100 100" width="120" height="120">
+                    <!-- Box Body -->
+                    <rect x="20" y="40" width="60" height="50" fill="#062229" stroke="#00f2fe" stroke-width="2.5" rx="2"/>
+                    <!-- Box Lid -->
+                    <rect x="16" y="30" width="68" height="14" fill="#00f2fe" rx="2"/>
+                    <!-- Horizontal Gold/Cyan Ribbon Accent -->
+                    <rect x="16" y="35" width="68" height="4" fill="#ffffff" opacity="0.4"/>
+                    <!-- Vertical Main Ribbon Cross -->
+                    <rect x="45" y="30" width="10" height="60" fill="#00ffb3"/>
+                    <!-- Elegant Top Ribbon Bow Tie -->
+                    <path d="M45 30 C35 15, 30 25, 45 30 Z" fill="#00ffb3"/>
+                    <path d="M55 30 C65 15, 70 25, 55 30 Z" fill="#00ffb3"/>
+                </svg>
             </div>
+            <!-- Letter-spaced elegant trigger tracking video layout -->
+            <h2 class="video-tap-text">TAP TO OPEN</h2>
         </div>
     </div>
 
-    <!-- STEP 2: MAIN DASHBOARD SCREEN (HIDDEN INITIALLY) -->
-    <div id="dashboard-screen" class="screen-container hidden">
+    <!-- 📊 STEP 2: MAIN SCROLLABLE DASHBOARD -->
+    <div id="dashboard-screen" class="screen-container hidden scrollable">
         <div class="dashboard-card">
             <div class="process-badge">NIFTEL • Voice Process</div>
             
-            <h1 class="main-title">Happy Birthday <span class="highlight-text">Raghvendra Sir!</span></h1>
+            <h1 class="main-title">HAPPY BIRTHDAY <span class="highlight-text">RAGHVENDRA SIR!</span></h1>
             <p class="designation">The Master of Quality Analysis & Compliance</p>
 
-            <!-- 100% QUALITY AUDIT SCORECARD -->
-            <div class="scorecard">
-                <h3 class="scorecard-title">📊 Birthday Quality Audit Report</h3>
+            <p class="scroll-prompt">⚡ SCROLL DOWN ⚡</p>
+
+            <!-- SECTION 1: QUALITY AUDIT SCORECARD -->
+            <div class="dashboard-section scorecard">
+                <h3 class="section-title">📊 Birthday Quality Audit Report</h3>
                 <div class="param-row">
                     <span>Fatal Errors Found:</span>
                     <span class="param-val secure-green">0% (Perfect Compliance!)</span>
@@ -64,18 +72,52 @@
                 </div>
             </div>
 
-            <!-- LIVE FEEDBACK LOGGER (TYPEWRITER) -->
-            <div class="feedback-console">
+            <!-- SECTION 2: LIVE FEEDBACK LOGGER (TYPEWRITER) -->
+            <div class="dashboard-section feedback-console">
                 <span class="console-tag">[AUDIT_LOG]:</span>
                 <p id="typewriter-text"></p>
             </div>
 
-            <!-- GRAND FINALE BUTTON -->
-            <button class="btn-celebrate" onclick="triggerGrandFinale()">ACKNOWLEDGE & CELEBRATE 🎉</button>
+            <!-- SECTION 3: QA POWER METERS -->
+            <div class="dashboard-section trait-meter">
+                <h3 class="section-title">⚡ Auditor Power Stats</h3>
+                <div class="trait-row">
+                    <div class="trait-info"><span>Chai/Coffee Dependency:</span><span>100%</span></div>
+                    <div class="progress-bar"><div class="bar-fill cyan-fill" style="width: 100%"></div></div>
+                </div>
+                <div class="trait-row">
+                    <div class="trait-info"><span>Patience level with Agents:</span><span>95%</span></div>
+                    <div class="progress-bar"><div class="bar-fill green-fill" style="width: 95%"></div></div>
+                </div>
+            </div>
+
+            <!-- SECTION 4: INTERACTIVE SCRATCH CARD -->
+            <div class="dashboard-section scratch-section">
+                <h3 class="section-title">🤫 Scratch For Hidden Message</h3>
+                <div class="scratch-card-container">
+                    <div class="scratch-secret-message">
+                        <p>"Sir, aap audit chahe jitne strict karte ho, par coaching hamesha ek bade bhai jaisi dete ho! Thank you for always guiding us." 🙌✨</p>
+                    </div>
+                    <canvas id="scratch-canvas" width="280" height="150"></canvas>
+                </div>
+            </div>
+
+            <!-- GRAND FINALE CUSTOM BUTTON -->
+            <button class="btn-celebrate" onclick="openPremiumModal()">ACKNOWLEDGE & CELEBRATE 🎉</button>
         </div>
     </div>
 
-    <!-- JavaScript -->
+    <!-- 💎 STEP 3: CUSTOM PREMIUM MODAL (No cheap browser alerts) -->
+    <div id="custom-modal" class="modal-overlay hidden-modal">
+        <div class="modal-card">
+            <div class="modal-icon">✔</div>
+            <h2>Audit Status: 100% Passed!</h2>
+            <p class="modal-msg">Happy Birthday Raghvendra Sir! May you have an amazing year ahead with zero fatals and maximum happiness.</p>
+            <p class="modal-footer">- From Mohammad Irshad & Team</p>
+            <button class="btn-close-modal" onclick="closePremiumModal()">Done 👍</button>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
