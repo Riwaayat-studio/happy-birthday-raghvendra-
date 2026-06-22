@@ -12,8 +12,8 @@ function openGiftBox() {
 
     // Dynamic particles burst at click coordinates mimicking the clip particles
     confetti({
-        particleCount: 50,
-        spread: 50,
+        particleCount: 60,
+        spread: 55,
         origin: { y: 0.5 },
         colors: ['#00f2fe', '#ffffff', '#00ffb3']
     });
